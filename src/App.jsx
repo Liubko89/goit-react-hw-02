@@ -61,14 +61,6 @@ function App() {
     }));
   };
 
-  // const setStateToLS = (state) => {
-  //   window.);
-  // };
-
-  // const getStateFromLS = () => {
-  //   JSON.parse(window.localStorage.getItem("state"));
-  // };
-
   const totalFeedback = state.good + state.neutral + state.bad;
 
   return (
