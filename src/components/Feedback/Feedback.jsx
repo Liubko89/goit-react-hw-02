@@ -1,15 +1,19 @@
+import css from "./Feedback.module.css";
+
 const Feedback = ({ stats, totalFeedback }) => {
   return (
-    <div>
+    <div className={css.feedbackContainer}>
       {Object.keys(stats).map((state, index) => {
         return (
-          <p key={index}>
-            {state}:<span>{stats[state]}</span>
+          <p key={index} className={css.feedback}>
+            {state}: <span>{stats[state]}</span>
           </p>
         );
       })}
-      <p>total: {totalFeedback}</p>
-      <p>positive: {Math.round((stats.good / totalFeedback) * 100)}%</p>
+      <p className={css.feedback}>total: {totalFeedback}</p>
+      <p className={css.feedback}>
+        positive: {Math.round((stats.good / totalFeedback) * 100)}%
+      </p>
     </div>
   );
 };
