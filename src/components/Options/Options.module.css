@@ -1,0 +1,34 @@
+.btnList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.btn,
+.btnReset {
+  cursor: pointer;
+  background-color: lightgray;
+  text-transform: capitalize;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  width: 68px;
+}
+
+.btn:active,
+.btn:hover {
+  background-color: rgb(163, 205, 166);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.btnReset {
+  margin-left: 8px;
+}
+
+.btnReset:hover {
+  background-color: rgb(250, 103, 103);
+}

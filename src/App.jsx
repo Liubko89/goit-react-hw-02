@@ -2,13 +2,26 @@ import Description from "./components/Description/Description";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
 import Options from "./components/Options/Options";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [state, setState] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [state, setState] = useState(() => {
+    const savedState = JSON.parse(localStorage.getItem("state"));
+    return savedState !== null
+      ? {
+          good: savedState.state.good,
+          neutral: savedState.state.neutral,
+          bad: savedState.state.bad,
+        }
+      : {
+          good: 0,
+          neutral: 0,
+          bad: 0,
+        };
+  });
+
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify({ state }));
   });
 
   const updateFeedback = (feedbackType) => {
@@ -49,7 +62,7 @@ function App() {
   };
 
   // const setStateToLS = (state) => {
-  //   window.localStorage.setItem("state", JSON.stringify({ state }));
+  //   window.);
   // };
 
   // const getStateFromLS = () => {
