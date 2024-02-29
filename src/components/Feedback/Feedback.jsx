@@ -1,4 +1,4 @@
-const Feedback = ({ stats }) => {
+const Feedback = ({ stats, totalFeedback }) => {
   return (
     <div>
       {Object.keys(stats).map((state, index) => {
@@ -8,6 +8,8 @@ const Feedback = ({ stats }) => {
           </p>
         );
       })}
+      <p>total: {totalFeedback}</p>
+      <p>positive: {Math.round((stats.good / totalFeedback) * 100)}%</p>
     </div>
   );
 };
