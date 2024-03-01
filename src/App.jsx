@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("state", JSON.stringify({ state }));
-  });
+  }, [state]);
 
   const updateFeedback = (feedbackType) => {
     feedbackType === "good"
@@ -62,6 +62,9 @@ function App() {
   };
 
   const totalFeedback = state.good + state.neutral + state.bad;
+  const positivePercentage = Math.round(
+    ((state.good + state.neutral) / totalFeedback) * 100
+  );
 
   return (
     <div>
@@ -73,7 +76,11 @@ function App() {
         reset={reset}
       />
       {totalFeedback > 0 ? (
-        <Feedback stats={state} totalFeedback={totalFeedback} />
+        <Feedback
+          stats={state}
+          totalFeedback={totalFeedback}
+          percentage={positivePercentage}
+        />
       ) : (
         <Notification />
       )}
