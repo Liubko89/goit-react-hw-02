@@ -35,13 +35,7 @@ function App() {
     setState((prevState) => ({
       ...prevState,
       good: 0,
-    }));
-    setState((prevState) => ({
-      ...prevState,
       neutral: 0,
-    }));
-    setState((prevState) => ({
-      ...prevState,
       bad: 0,
     }));
   };
