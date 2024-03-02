@@ -9,9 +9,9 @@ function App() {
     const savedState = JSON.parse(localStorage.getItem("state"));
     return savedState !== null
       ? {
-          good: savedState.state.good,
-          neutral: savedState.state.neutral,
-          bad: savedState.state.bad,
+          good: savedState.good,
+          neutral: savedState.neutral,
+          bad: savedState.bad,
         }
       : {
           good: 0,
@@ -21,7 +21,7 @@ function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem("state", JSON.stringify({ state }));
+    localStorage.setItem("state", JSON.stringify(state));
   }, [state]);
 
   const updateFeedback = (feedbackType) => {
