@@ -25,25 +25,10 @@ function App() {
   }, [state]);
 
   const updateFeedback = (feedbackType) => {
-    feedbackType === "good"
-      ? setState((prevState) => ({
-          ...prevState,
-          good: prevState.good + 1,
-        }))
-      : null;
-    feedbackType === "neutral"
-      ? setState((prevState) => ({
-          ...prevState,
-          neutral: prevState.neutral + 1,
-        }))
-      : null;
-
-    feedbackType === "bad"
-      ? setState((prevState) => ({
-          ...prevState,
-          bad: prevState.bad + 1,
-        }))
-      : null;
+    setState((prevState) => ({
+      ...prevState,
+      [feedbackType]: prevState[feedbackType] + 1,
+    }));
   };
 
   const reset = () => {
